@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-syne: 'Syne', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #070809;
+  color: #f1f5f9;
+  font-family: var(--font-space), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #00FF66;
+  selection-color: #070809;
+}
+
+::selection {
+  background: #00FF66;
+  color: #070809;
+}
+
+/* Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #070809;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f242d;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00FF66;
+  box-shadow: 0 0 10px #00FF66;
+}
+
+/* Neon Glow Utilities */
+.neon-text-glow {
+  text-shadow: 0 0 20px rgba(0, 255, 102, 0.45);
+}
+
+.neon-box-glow {
+  box-shadow: 0 0 35px -5px rgba(0, 255, 102, 0.3);
+}
+
+.neon-box-glow-sm {
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.25);
+}
+
+/* Cyber Matrix Grid Pattern */
+.grid-bg-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Cyber Warning Tape Pattern */
+.cyber-tape {
+  background: repeating-linear-gradient(
+    -45deg,
+    #00FF66,
+    #00FF66 12px,
+    #070809 12px,
+    #070809 24px
+  );
+}
+
+/* Scanline Overlay effect */
+.cyber-scanline {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.3)
+  );
+  background-size: 100% 4px;
+}
+
+/* ==========================================================================
+   Cyberpunk Entrance & Scroll-Reveal Keyframe Animations
+   ========================================================================== */
+
+@keyframes cyberFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cyberFadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cyberFadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cyberGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(0, 255, 102, 0.65));
+  }
+}
+
+/* Hero Entrance Animations */
+.animate-hero-header {
+  animation: cyberFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.animate-hero-headline {
+  animation: cyberFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.animate-hero-bio {
+  animation: cyberFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.animate-hero-cta {
+  animation: cyberFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.animate-hero-highlights {
+  animation: cyberFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+
+.animate-hero-portrait {
+  animation: cyberFadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.animate-glow-pulse {
+  animation: cyberGlowPulse 4s ease-in-out infinite;
+}
+
+/* Scroll Reveal Classes (IntersectionObserver) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+.reveal-delay-6 { transition-delay: 600ms; }
