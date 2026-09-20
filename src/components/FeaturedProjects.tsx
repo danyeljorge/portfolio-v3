@@ -1,35 +1,38 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PORTFOLIO_DATA } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 import { ArrowUpRightIcon, ArrowRightIcon } from "./icons/CyberIcons";
 
 export default function FeaturedProjects() {
-  const { featuredProjects } = PORTFOLIO_DATA;
+  const { data, t } = useLanguage();
+  const { featuredProjects, socialLinks } = data;
 
   return (
     <section
-      className="py-20 lg:py-28 border-b border-brand-border relative"
+      className="py-20 lg:py-28 border-b border-zinc-200 dark:border-brand-border relative transition-colors duration-200"
       data-purpose="featured-projects"
       id="trabalhos"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title Header (Poster Styled) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-brand-border reveal-on-scroll">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-zinc-200 dark:border-brand-border reveal-on-scroll">
           <div>
-            <div className="font-mono text-xs text-brand-neon uppercase tracking-widest mb-2">
-              // PORTFÓLIO SELECIONADO
+            <div className="font-mono text-xs text-emerald-600 dark:text-brand-neon uppercase tracking-widest mb-2">
+              {t.projectsTag}
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-black tracking-tighter uppercase text-white">
-              TRABALHOS EM DESTAQUE
+            <h2 className="text-3xl sm:text-5xl font-display font-black tracking-tighter uppercase text-zinc-900 dark:text-white">
+              {t.projectsTitle}
             </h2>
           </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-zinc-400">
+          <div className="mt-4 md:mt-0 font-mono text-xs text-zinc-500 dark:text-zinc-400">
             <Link
               href="#contato"
-              className="inline-flex items-center gap-2 text-brand-neon hover:text-white transition-colors group"
+              className="inline-flex items-center gap-2 text-emerald-600 dark:text-brand-neon hover:text-black dark:hover:text-white transition-colors group"
             >
-              <span>SOLICITAR PROJETO SOB MEDIDA</span>
+              <span>{t.projectsCustom}</span>
               <span className="group-hover:translate-x-1 transition-transform">↗</span>
             </Link>
           </div>
@@ -40,37 +43,37 @@ export default function FeaturedProjects() {
           {featuredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className={`bg-brand-card border border-brand-border hover:border-brand-neon transition-all duration-300 flex flex-col justify-between group relative overflow-hidden reveal-on-scroll reveal-delay-${(idx % 4) + 1}`}
+              className={`bg-white dark:bg-brand-card border border-zinc-200 dark:border-brand-border hover:border-emerald-500 dark:hover:border-brand-neon transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-none flex flex-col justify-between group relative overflow-hidden reveal-on-scroll reveal-delay-${(idx % 4) + 1}`}
               data-purpose="project-card"
             >
               {/* Top Card Header */}
-              <div className="p-6 border-b border-brand-border/60">
+              <div className="p-6 border-b border-zinc-100 dark:border-brand-border/60">
                 <div className="flex justify-between items-start mb-4">
-                  <span className="text-[10px] font-mono text-brand-neon tracking-widest uppercase">
+                  <span className="text-[10px] font-mono text-emerald-600 dark:text-brand-neon tracking-widest uppercase font-semibold">
                     {project.tag}
                   </span>
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-600 font-mono text-xs group-hover:text-brand-neon transition-colors p-1"
+                    className="text-zinc-400 group-hover:text-emerald-600 dark:text-zinc-600 dark:group-hover:text-brand-neon transition-colors p-1"
                     aria-label={`Abrir ${project.title}`}
                   >
                     <ArrowUpRightIcon className="w-3.5 h-3.5" />
                   </a>
                 </div>
-                <h3 className="font-heading font-black text-2xl uppercase tracking-tight text-white group-hover:text-brand-neon transition-colors">
+                <h3 className="font-heading font-black text-2xl uppercase tracking-tight text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-brand-neon transition-colors">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     {project.title}
                   </a>
                 </h3>
-                <p className="text-xs text-zinc-400 mt-2 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-2 leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               {/* Card Visual Mock / Graphic Block */}
-              <div className="h-44 bg-zinc-950 p-4 relative flex items-center justify-center overflow-hidden border-b border-brand-border/60">
+              <div className="h-44 bg-zinc-950 p-4 relative flex items-center justify-center overflow-hidden border-b border-zinc-200 dark:border-brand-border/60">
                 {project.image ? (
                   <div className="relative w-full h-full overflow-hidden border border-brand-border group-hover:border-brand-neon/50 transition-colors">
                     <Image
@@ -117,8 +120,8 @@ export default function FeaturedProjects() {
               </div>
 
               {/* Bottom Meta & Actions */}
-              <div className="p-4 bg-brand-dark/80 flex items-center justify-between font-mono text-xs">
-                <span className="text-zinc-400 text-[11px] truncate max-w-[140px]">
+              <div className="p-4 bg-zinc-50 dark:bg-brand-dark/80 flex items-center justify-between font-mono text-xs">
+                <span className="text-zinc-500 dark:text-zinc-400 text-[11px] truncate max-w-[140px]">
                   {project.metrics}
                 </span>
                 <div className="flex items-center gap-2">
@@ -127,7 +130,7 @@ export default function FeaturedProjects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[10px] text-zinc-400 hover:text-brand-neon transition-colors"
+                      className="text-[10px] text-zinc-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-brand-neon transition-colors"
                       title="Repositório GitHub"
                     >
                       [CODE]
@@ -137,9 +140,9 @@ export default function FeaturedProjects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-neon font-bold text-[11px] hover:underline"
+                    className="text-emerald-600 dark:text-brand-neon font-bold text-[11px] hover:underline"
                   >
-                    VISITAR ↗
+                    {t.projectsVisit} ↗
                   </a>
                 </div>
               </div>
@@ -148,14 +151,14 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Explore All Repos Link */}
-        <div className="mt-8 pt-6 border-t border-brand-border/40 flex justify-center">
+        <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-brand-border/40 flex justify-center">
           <a
-            href={PORTFOLIO_DATA.socialLinks.github}
+            href={socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-card hover:bg-brand-dark text-zinc-300 hover:text-brand-neon font-mono text-xs uppercase tracking-widest border border-brand-border transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-zinc-100 dark:bg-brand-card dark:hover:bg-brand-dark text-zinc-700 hover:text-emerald-600 dark:text-zinc-300 dark:hover:text-brand-neon font-mono text-xs uppercase tracking-widest border border-zinc-300 dark:border-brand-border transition-all duration-300 shadow-sm"
           >
-            <span>VER MAIS PROJETOS NO GITHUB</span>
+            <span>{t.projectsMoreGithub}</span>
             <ArrowRightIcon className="w-3.5 h-3.5" />
           </a>
         </div>

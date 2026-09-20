@@ -1,44 +1,47 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { PORTFOLIO_DATA } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 import { ArrowUpRightIcon } from "./icons/CyberIcons";
 
 export default function CaseStudy() {
-  const { caseStudy } = PORTFOLIO_DATA;
+  const { data, t } = useLanguage();
+  const { caseStudy } = data;
 
   return (
     <section
-      className="py-20 lg:py-28 bg-brand-dark border-b border-brand-border relative overflow-hidden"
+      className="py-20 lg:py-28 bg-slate-100 dark:bg-brand-dark border-b border-zinc-200 dark:border-brand-border relative overflow-hidden transition-colors duration-200"
       data-purpose="case-study-feature"
       id="case-study"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="font-mono text-xs text-brand-neon uppercase tracking-widest mb-3">
+        <div className="font-mono text-xs text-emerald-600 dark:text-brand-neon uppercase tracking-widest mb-3">
           // {caseStudy.subtitle}
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12">
-          <h2 className="text-3xl sm:text-5xl font-display font-black uppercase tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-display font-black uppercase tracking-tight text-zinc-900 dark:text-white">
             {caseStudy.title}
           </h2>
-          <span className="font-mono text-xs text-zinc-400 mt-2 lg:mt-0">
+          <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-2 lg:mt-0">
             {caseStudy.stackSummary}
           </span>
         </div>
 
         {/* Split Feature Case Banner */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-2 border-brand-neon shadow-[0_0_30px_rgba(0,255,102,0.15)] bg-brand-black">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-2 border-brand-neon shadow-[0_0_30px_rgba(0,255,102,0.15)] bg-white dark:bg-brand-black">
           {/* Left Column: Metrics & Story */}
-          <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-border">
+          <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-brand-border">
             <div>
-              <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-neon bg-brand-card px-3 py-1.5 border border-brand-neon/40 mb-6">
+              <div className="inline-flex items-center gap-2 font-mono text-xs text-emerald-700 dark:text-brand-neon bg-zinc-100 dark:bg-brand-card px-3 py-1.5 border border-emerald-500/40 dark:border-brand-neon/40 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-neon animate-ping"></span>
                 <span>{caseStudy.tag}</span>
               </div>
-              <h3 className="text-2xl sm:text-4xl font-display font-extrabold uppercase text-white mb-4 leading-tight">
+              <h3 className="text-2xl sm:text-4xl font-display font-extrabold uppercase text-zinc-900 dark:text-white mb-4 leading-tight">
                 {caseStudy.headline}
               </h3>
-              <p className="font-heading text-zinc-300 text-sm sm:text-base leading-relaxed mb-8">
+              <p className="font-heading text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed mb-8">
                 {caseStudy.description}
               </p>
 
@@ -67,7 +70,7 @@ export default function CaseStudy() {
                 href="#contato"
                 className="inline-flex items-center gap-3 px-8 py-3.5 bg-brand-neon text-black font-mono font-bold text-xs uppercase tracking-wider hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,102,0.4)]"
               >
-                <span>VER DETALHES DO PROJETO</span>
+                <span>{t.caseStudyCta}</span>
                 <ArrowUpRightIcon className="w-4 h-4" />
               </Link>
             </div>
@@ -98,7 +101,7 @@ export default function CaseStudy() {
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-[11px] text-zinc-500 uppercase tracking-wider">
-                      Receita Recorrente Mensal
+                      {t.caseStudyMrrLabel}
                     </div>
                     <div className="text-2xl font-bold text-white font-display mt-0.5">
                       {caseStudy.monthlyRevenue}

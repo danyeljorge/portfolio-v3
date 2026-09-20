@@ -1,12 +1,15 @@
+"use client";
+
 import React from "react";
-import { PORTFOLIO_DATA } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MarqueeTicker() {
-  const { marqueeItems } = PORTFOLIO_DATA;
+  const { data } = useLanguage();
+  const { marqueeItems } = data;
 
   return (
     <section
-      className="border-y border-brand-border bg-brand-neon py-3 text-black font-mono font-extrabold text-xs tracking-widest uppercase overflow-hidden select-none"
+      className="border-y border-zinc-900/10 dark:border-brand-border bg-brand-neon py-3 text-black font-mono font-extrabold text-xs tracking-widest uppercase overflow-hidden select-none transition-colors duration-200"
       data-purpose="marquee-ticker"
       aria-hidden="true"
     >
