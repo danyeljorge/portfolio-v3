@@ -8,6 +8,8 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Turbopack](https://img.shields.io/badge/Turbopack-00FF66?style=for-the-badge&logo=turbopack&logoColor=black)](https://turbo.build/)
+[![Theme](https://img.shields.io/badge/Theme-Dark%20%7C%20Light-yellow?style=for-the-badge)](https://www.danieljorge.dev.br)
+[![i18n](https://img.shields.io/badge/i18n-PT%20%7C%20EN-blue?style=for-the-badge)](https://www.danieljorge.dev.br)
 
 <br />
 
@@ -35,12 +37,14 @@ O projeto foi projetado pensando em manutenibilidade e escalabilidade, centraliz
 ## ⚡ Destaques & Diferenciais
 
 - **🚀 Next.js 16 (App Router) + Turbopack**: Compilação ultrarrápida e renderização híbrida otimizada para Core Web Vitals.
+- **🌓 Tema Claro & Escuro (Light / Dark Mode)**: Alternador de tema intuitivo com persistência em `localStorage`, script anti-FOUC (sem cintilação) e logotipos adaptativos de alto contraste (`logo-white-green.png` e `logo-black-green.png`).
+- **🌐 Multi-Linguagem Completo (PT / EN)**: Suporte nativo a Português (padrão) e Inglês em 100% das seções, projetos, métricas, formulários e integração do WhatsApp, com seletor `[ PT | EN ]` interativo no cabeçalho e persistência de preferência.
 - **🎨 Design System Cyberpunk Brutalista**: Grid holográfico, glow effects, badge status HUD e fontes personalizadas (*Space Grotesk*, *Syne* e *JetBrains Mono*).
 - **📱 Responsividade Estratégica (Mobile First)**: No desktop, layout equilibrado em grid; no mobile, a fotografia do desenvolvedor ganha prioridade superior no Hero com o texto posicionado logo abaixo.
 - **🧩 Ícones SVG Nativos Inline**: Zero overhead de bibliotecas pesadas de terceiros (sem lucide-react), reduzindo drasticamente o First Contentful Paint.
 - **🎬 Micro-animações e Scroll Reveal**: Efeitos de fade-in táticos e transições suaves ativadas conforme o usuário rola a página.
 - **📂 Arquitetura 100% Desacoplada**: Todas as informações do site (projetos, links, textos, stack e contatos) são configuradas em `src/data/portfolio.ts`.
-- **💬 Formulário Direto para WhatsApp**: Disparo automático de mensagem estruturada e higienizada diretamente no WhatsApp do desenvolvedor.
+- **💬 Formulário Direto para WhatsApp**: Disparo automático de mensagem estruturada e higienizada diretamente no WhatsApp do desenvolvedor no idioma selecionado.
 
 ---
 
@@ -65,7 +69,8 @@ portfolio-III/
 ├── public/
 │   ├── images/
 │   │   ├── cover.png                  # Imagem de capa oficial do projeto
-│   │   ├── logo-white-green.png       # Logotipo principal com texto e ícone
+│   │   ├── logo-white-green.png       # Logotipo adaptativo para tema escuro
+│   │   ├── logo-black-green.png       # Logotipo adaptativo para tema claro
 │   │   ├── logo-symbol.png            # Ícone/símbolo oficial do desenvolvedor
 │   │   ├── sobreMim-01.webp           # Foto oficial de Daniel Jorge (Hero)
 │   │   └── projects/                  # Mockups e screenshots dos projetos
@@ -74,14 +79,15 @@ portfolio-III/
 ├── src/
 │   ├── app/
 │   │   ├── globals.css                # Estilos globais, grid cyberpunk e utilitários
-│   │   ├── layout.tsx                 # Metadados SEO, Viewport, OpenGraph e Fontes
+│   │   ├── layout.tsx                 # Providers, Metadados SEO, OpenGraph e Fontes
 │   │   └── page.tsx                   # Composição principal das seções da landing page
 │   ├── components/
 │   │   ├── HudOverlay.tsx             # Indicadores HUD (status do sistema e coordenadas)
-│   │   ├── Navbar.tsx                 # Barra de navegação responsiva com menu drawer
+│   │   ├── Navbar.tsx                 # Barra com alternador de tema e seletor [ PT | EN ]
 │   │   ├── Hero.tsx                   # Seção de abertura com kinetic typography e foto
 │   │   ├── MarqueeTicker.tsx          # Ticker neon infinito com especialidades
 │   │   ├── FeaturedProjects.tsx       # Vitrine de projetos com tags e links
+│   │   ├── CaseStudy.tsx              # Estudo de caso com métricas e dashboard interativo
 │   │   ├── TechStack.tsx              # Grid tático do arsenal de tecnologias
 │   │   ├── ExperienceTimeline.tsx     # Linha do tempo profissional (2019 - Presente)
 │   │   ├── Testimonials.tsx           # Prova social e depoimentos de clientes
@@ -91,8 +97,11 @@ portfolio-III/
 │   │   │   └── CyberIcons.tsx         # Componente central de ícones SVG inline
 │   │   └── motion/
 │   │       └── ScrollRevealObserver.tsx # Observer nativo para efeitos de entrada ao scroll
+│   ├── context/
+│   │   ├── ThemeContext.tsx           # Gerenciador de tema claro/escuro com localStorage
+│   │   └── LanguageContext.tsx        # Gerenciador de idioma (PT/EN) com localStorage
 │   └── data/
-│       └── portfolio.ts               # Arquivo mestre de dados para fácil manutenção
+│       └── portfolio.ts               # Arquivo mestre bilíngue (PT & EN) e traduções de UI
 ├── cover.png                          # Capa do projeto para visualização direta no repositório
 ├── tailwind.config.ts                 # Paleta neon, sombras, keyframes e temas
 ├── tsconfig.json                      # Configurações do compilador TypeScript
@@ -138,18 +147,25 @@ portfolio-III/
 
 ---
 
-## 🛠️ Como Atualizar o Conteúdo
+## 🛠️ Como Atualizar o Conteúdo & Multi-Linguagem
 
-Toda a gestão de conteúdo do site é feita em **um único local**:
+Toda a gestão de conteúdo do site é centralizada em:
 
 📁 **[`src/data/portfolio.ts`](./src/data/portfolio.ts)**
 
-Basta abrir esse arquivo e editar os campos desejados:
-- **Projetos (`featuredProjects`)**: Adicione novos cards, links do repositório/site e screenshots.
-- **Textos do Hero (`heroHeadline`)**: Altere os títulos de impacto da entrada.
-- **Redes Sociais (`socialLinks`)**: Altere links para LinkedIn, GitHub, Instagram e YouTube.
-- **Contato & WhatsApp (`contact`)**: Altere telefone, e-mail e texto pré-formatado.
-- **Arsenal Técnico (`techStack`)**: Atualize as tecnologias e categorias exibidas.
+O arquivo é organizado em estruturas tipadas e bilíngues:
+- **`PORTFOLIO_DATA_PT`**: Todo o conteúdo em Português (projetos, biografia, timeline, depoimentos e contatos).
+- **`PORTFOLIO_DATA_EN`**: Todo o conteúdo traduzido para Inglês com tom profissional e editorial.
+- **`UI_TRANSLATIONS`**: Textos de interface, botões, placeholders de formulário e mensagens de feedback para ambos os idiomas (`pt` e `en`).
+- **`PORTFOLIO_DATA` / `getPortfolioData(lang)`**: Métodos auxiliares para consumo reativo e retrocompatível.
+
+### Campos editáveis:
+- **Projetos (`featuredProjects`)**: Adicione novos cards, links do repositório/site, métricas de resultado e screenshots.
+- **Estudo de Caso (`caseStudy`)**: Métricas de conversão, links do dashboard e logs de terminal.
+- **Textos do Hero (`heroHeadline` / `shortBio`)**: Títulos de impacto e resumo profissional.
+- **Redes Sociais (`socialLinks`)**: Links para LinkedIn, GitHub, Instagram e YouTube.
+- **Contato & WhatsApp (`contact`)**: Telefone, e-mail e texto pré-formatado para geração do link de WhatsApp.
+- **Arsenal Técnico (`techStack`)**: Atualize as tecnologias, funções e categorias exibidas.
 - **Trajetória (`experience`)**: Adicione novas conquistas e marcos na linha do tempo.
 - **Depoimentos (`testimonials`)**: Insira novos feedbacks de clientes e parceiros.
 
