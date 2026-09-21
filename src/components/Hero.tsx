@@ -11,7 +11,7 @@ import {
   TerminalIcon,
   GaugeIcon,
 } from "./icons/CyberIcons";
-import danielPhoto from "../../public/images/sobreMim-01.webp";
+import danielPhoto from "../../public/images/expert3-.webp";
 
 export default function Hero() {
   const { data, t } = useLanguage();
@@ -162,7 +162,7 @@ export default function Hero() {
                 <Image
                   src={danielPhoto}
                   alt="Daniel Jorge - Front-end & Full Stack Web Developer"
-                  className="w-full h-auto object-contain max-h-[520px] filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] scale-x-[-1] hover:scale-x-[-1.02] transition-transform duration-500"
+                  className="w-full h-auto object-contain max-h-[520px] md:max-h-[800px] filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] scale-x-[-1] hover:scale-x-[-1.02] transition-transform duration-500"
                   priority
                 />
                 {/* Neon Underglow Edge */}
