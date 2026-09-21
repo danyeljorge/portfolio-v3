@@ -50,7 +50,7 @@ export default function Hero() {
         </div>
 
         {/* Main Hero Columns Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end pt-8 lg:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start pt-8 lg:pt-12">
           {/* Left Col: Editorial Headline & Actions (order-2 on mobile, order-1 on desktop) */}
           <div
             className="order-2 lg:order-1 lg:col-span-7 flex flex-col justify-between"
@@ -115,7 +115,7 @@ export default function Hero() {
 
           {/* Right Col: Visual Portrait with Cyberpunk Backing (order-1 on mobile, order-2 on desktop) */}
           <div
-            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center lg:justify-end animate-hero-portrait"
+            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center lg:justify-end self-start animate-hero-portrait"
             data-purpose="hero-portrait-container"
           >
             {/* Graphic Neon Grunge Tape / Cross Overlay Accent */}
