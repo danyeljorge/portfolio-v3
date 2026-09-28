@@ -230,9 +230,25 @@ export const PORTFOLIO_DATA_PT: PortfolioData = {
   ],
 
   featuredProjects: [
+     {
+      id: "system-elohim",
+      tag: "01 // SISTEMA DE GESTÃO",
+      title: "GESTÃO ILPI",
+      description:
+        "Sistema para gestão de lar de idosos com controle de pacientes, relatórios e painel administrativo.",
+      techs: ["NEXT.JS", "TAILWIND", "REACT"],
+      metrics: "Clean UI / SEO Otimizado",
+      category: "CASE V1.2",
+      liveUrl: "https://painel.casaderepousoelohim.com.br/",
+      githubUrl: "privado",
+      mockupTitle: "SYSTEM ILPI",
+      mockupBadge: "100% RESPONSIVO",
+      gradient: "from-emerald-950/40 via-zinc-900 to-black",
+      image: "/images/projects/projeto_8_gestao-ilip.webp",
+    },
     {
       id: "elohim",
-      tag: "01 // INSTITUCIONAL",
+      tag: "02 // INSTITUCIONAL",
       title: "ELOHIM RESIDENCE",
       description:
         "Portal institucional moderno para lar de idosos com navegação humanizada, agendamento de visitas online e painel administrativo.",
@@ -248,7 +264,7 @@ export const PORTFOLIO_DATA_PT: PortfolioData = {
     },
     {
       id: "keygen",
-      tag: "02 // CYBERSECURITY",
+      tag: "03 // CYBERSECURITY",
       title: "KEYGEN SECURITY",
       description:
         "Gerador de senhas de alta entropia criptográfica com validação de força, cálculo de segurança em tempo real e cópia instantânea.",
@@ -264,7 +280,7 @@ export const PORTFOLIO_DATA_PT: PortfolioData = {
     },
     {
       id: "clima",
-      tag: "03 // WEATHER API",
+      tag: "04 // WEATHER API",
       title: "CLIMA TEMPO RADAR",
       description:
         "Aplicação climática em tempo real com busca por geolocalização dinâmica, previsões meteorológicas e renderização atmosférica.",
@@ -278,22 +294,7 @@ export const PORTFOLIO_DATA_PT: PortfolioData = {
       gradient: "from-blue-950/30 via-zinc-900 to-black",
       image: "/images/projects/projeto_05_previsao-tempo.jpg",
     },
-    {
-      id: "fintech",
-      tag: "04 // FINTECH TOOL",
-      title: "CALC FINTECH & PONTO",
-      description:
-        "Simulador financeiro de juros compostos, amortização de aportes e cálculo inteligente de banco de horas e retorno de almoço.",
-      techs: ["REACT", "ALGORITMOS", "VERCEL"],
-      metrics: "SaaS Engine / Dashboard",
-      category: "FINANCE",
-      liveUrl: "https://calc-juros-compostos.vercel.app/",
-      githubUrl: "https://github.com/danyeljorge/calc-juros-compostos",
-      mockupTitle: "DASHBOARD METRICS",
-      mockupBadge: "↑ 240% RETORNO",
-      gradient: "from-zinc-900 via-black to-zinc-950",
-      image: "/images/projects/projeto_03_juros-compostos.jpg",
-    },
+    
   ],
 
   caseStudy: {
@@ -459,9 +460,25 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   ],
 
   featuredProjects: [
+         {
+      id: "system-elohim",
+      tag: "01 // MANAGEMENT SYSTEM",
+      title: "ILPI MANAGEMENT",
+      description:
+        "Management system for elderly care facilities with resident management, reports, and an administrative dashboard.",
+      techs: ["NEXT.JS", "TAILWIND", "REACT"],
+      metrics: "Clean UI / SEO Optimized",
+      category: "CASE V1.2",
+      liveUrl: "https://painel.casaderepousoelohim.com.br/",
+      githubUrl: "privadprivateo",
+      mockupTitle: "ILPI SYSTEM",
+      mockupBadge: "100% RESPONSIVE",
+      gradient: "from-emerald-950/40 via-zinc-900 to-black",
+      image: "/images/projects/projeto_8_gestao-ilip.webp",
+    },
     {
       id: "elohim",
-      tag: "01 // INSTITUTIONAL",
+      tag: "02 // INSTITUTIONAL",
       title: "ELOHIM RESIDENCE",
       description:
         "Modern institutional platform for a senior care community featuring human-centered navigation, online tour booking, and administrative console.",
@@ -477,7 +494,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     },
     {
       id: "keygen",
-      tag: "02 // CYBERSECURITY",
+      tag: "03 // CYBERSECURITY",
       title: "KEYGEN SECURITY",
       description:
         "High-entropy cryptographic password generator with strength validation, real-time security score, and one-click clipboard copy.",
@@ -493,7 +510,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     },
     {
       id: "clima",
-      tag: "03 // WEATHER API",
+      tag: "04 // WEATHER API",
       title: "WEATHER RADAR",
       description:
         "Real-time weather radar application featuring dynamic geolocation search, forecast models, and atmospheric data rendering.",
@@ -507,22 +524,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       gradient: "from-blue-950/30 via-zinc-900 to-black",
       image: "/images/projects/projeto_05_previsao-tempo.jpg",
     },
-    {
-      id: "fintech",
-      tag: "04 // FINTECH TOOL",
-      title: "FINTECH & WORK CALC",
-      description:
-        "Financial simulator for compound interest, contribution amortization, and smart work-hour tracking and break time management.",
-      techs: ["REACT", "ALGORITHMS", "VERCEL"],
-      metrics: "SaaS Engine / Dashboard",
-      category: "FINANCE",
-      liveUrl: "https://calc-juros-compostos.vercel.app/",
-      githubUrl: "https://github.com/danyeljorge/calc-juros-compostos",
-      mockupTitle: "DASHBOARD METRICS",
-      mockupBadge: "↑ 240% RETURN",
-      gradient: "from-zinc-900 via-black to-zinc-950",
-      image: "/images/projects/projeto_03_juros-compostos.jpg",
-    },
+   
   ],
 
   caseStudy: {
